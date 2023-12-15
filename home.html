@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head> 
+    <meta name="google-signin-client_id"
+    content="16919293418-cqt1fgm6l414dmiv0g4n0gafme4nj6jk.apps.googleusercontent.com">
+  <title>Home Page</title>
+</head>
+<style>
+    body {
+        background-color: #f2f2f2;
+    }
+    div
+    {
+        color: #4CAF50;
+        font-size: 20px;
+        line-height: 30px;
+    }
+    button{
+        background-color: #4CAF50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+    }
+</style>
+<body>
+  <h1>Welcome to the Home Page</h1>
+  <div id="userInfo"></div>
+  <button id="logoutButton">Logout</button>
+
+  <script>
+    var currentEmail = localStorage.getItem("currentEmail");
+    var currentName = localStorage.getItem("currentName");
+    var userInfoDiv = document.getElementById("userInfo");
+    var userInfoText = document.createTextNode("Email: " + currentEmail + ", Name: " + currentName);
+    userInfoDiv.appendChild(userInfoText);
+    //logout
+    var logoutButton = document.getElementById("logoutButton");
+    logoutButton.addEventListener("click", function() {
+      localStorage.removeItem("currentEmail");
+      localStorage.removeItem("currentName");
+      window.location.href = "./index.html";
+    });
+  </script>
+</body>
+</html>
